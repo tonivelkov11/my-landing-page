@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Strategy | Break Through 2k Days</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark-bg:   #000000;
+      --accent:    #00d4f5;
+      --white:     #ffffff;
+      --light-txt: #cccccc;
+      --dark-txt:  #1a1a2e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--dark-txt);
+      background: var(--white);
+    }
+
+    /* ── Shared Utilities ───────────────────────────────────────── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .accent { color: var(--accent); }
+
+    .btn {
+      display: inline-block;
+      padding: 18px 60px;
+      border: 2px solid var(--accent);
+      color: var(--dark-bg);
+      background: var(--accent);
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    /* ── 1. HERO ─────────────────────────────────────────────────── */
+    .hero {
+      background: var(--dark-bg);
+      padding: 60px 24px 60px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.25;
+      max-width: 780px;
+      margin: 0 auto 28px;
+    }
+
+    .hero p {
+      font-size: 0.95rem;
+      color: var(--white);
+      max-width: 620px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
+
+    .trust-row {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      color: var(--light-txt);
+      font-size: 0.95rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-row span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trust-row .check { color: var(--accent); font-weight: 700; }
+    .trust-row .cross { color: #ff6b6b; font-weight: 700; }
+
+    /* ── 2. PROBLEM ──────────────────────────────────────────────── */
+    .problem {
+      background: var(--white);
+      padding: 50px 24px;
+      text-align: center;
+    }
+
+    .problem h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      color: var(--dark-txt);
+      margin-bottom: 40px;
+      line-height: 1.25;
+    }
+
+    .dark-pill {
+      display: inline-block;
+      background: var(--dark-bg);
+      color: var(--white);
+      padding: 4px 18px;
+      border-radius: 6px;
+    }
+
+    .problem-body {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .problem-body p {
+      color: var(--dark-txt);
+      margin-bottom: 28px;
+      font-size: 1.05rem;
+    }
+
+    .problem-body p:last-of-type { margin-bottom: 0; }
+
+    .arrow-row {
+      margin-top: 40px;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    /* ── 3. RESULTS ──────────────────────────────────────────────── */
+    .results {
+      background: var(--dark-bg);
+      padding: 50px 24px;
+      text-align: center;
+    }
+
+    .results h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 900;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .results .subtext {
+      color: var(--white);
+      font-size: 1rem;
+      margin-bottom: 40px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 820px;
+      margin: 0 auto 48px;
+    }
+
+    .card {
+      padding: 0;
+      text-align: left;
+    }
+
+    .card-light {
+      background: transparent;
+      border: none;
+    }
+
+    .card-dark {
+      background: transparent;
+      border: none;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .stats-table th {
+      text-align: left;
+      padding: 6px 8px 10px;
+      font-weight: 600;
+      font-size: 0.78rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .card-light .stats-table th { color: #555; border-bottom-color: #ddd; }
+    .card-dark  .stats-table th { color: var(--light-txt); border-bottom-color: rgba(255,255,255,0.15); }
+
+    .stats-table td {
+      padding: 8px 8px;
+      vertical-align: top;
+    }
+
+    .stats-table td:last-child { text-align: right; }
+
+    .stat-cost {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .card-light .stat-cost { color: var(--dark-txt); }
+    .card-dark  .stat-cost { color: var(--white); }
+
+    .stat-roas {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .card-light .stat-roas { color: var(--dark-txt); }
+    .card-dark  .stat-roas { color: var(--accent); }
+
+    .stat-sub {
+      font-size: 0.72rem;
+      display: block;
+    }
+
+    .card-light .stat-sub { color: #999; }
+    .card-dark  .stat-sub { color: var(--light-txt); }
+
+    .stats-table tr + tr td { border-top: 1px solid #eee; }
+    .card-dark .stats-table tr + tr td { border-top-color: rgba(255,255,255,0.07); }
+
+    /* ── 4. WHAT TO EXPECT ───────────────────────────────────────── */
+    .expect {
+      background: var(--white);
+      padding: 50px 24px 20px;
+      text-align: center;
+    }
+
+    .expect h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      color: var(--dark-txt);
+      line-height: 1.25;
+      margin-bottom: 0;
+    }
+
+    .highlight-box {
+      display: inline-block;
+      background: var(--dark-bg);
+      color: var(--white);
+      padding: 6px 20px;
+      border-radius: 6px;
+    }
+
+    /* ── 5. THREE STEPS ──────────────────────────────────────────── */
+    .steps {
+      background: var(--white);
+      padding: 40px 24px 50px;
+      text-align: center;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      max-width: 580px;
+      margin: 0 auto 40px;
+    }
+
+    .step-card {
+      background: #000;
+      border-radius: 12px;
+      padding: 32px 36px 36px;
+      text-align: center;
+    }
+
+    .step-number {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+      display: block;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .step-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .step-body {
+      font-size: 0.95rem;
+      color: var(--white);
+      line-height: 1.8;
+    }
+
+    .step-body p { margin-bottom: 14px; }
+    .step-body p:last-child { margin-bottom: 0; }
+
+    .step-body .accent-word { color: var(--accent); font-weight: 600; }
+    .step-body strong { color: var(--white); }
+
+
+    /* ── Mobile Responsive ───────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+.trust-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── 1. HERO ──────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <h1>
+        Breaking Through <span class="accent">2k Days</span> Is Inevitable with Tailored
+        <span class="accent">CREATIVE STRATEGY...</span>
+      </h1>
+      <p>
+        There are ads right now that your Meta <strong>ad account hopes</strong> to get.
+        Let's see what ads your brand specifically needs.
+      </p>
+      <a href="#final-cta" class="btn">Find Your Revenue Leaks</a>
+      <div class="trust-row">
+        <span><span class="check">✓</span> 30-minute strategy call</span>
+        <span><span class="cross">✗</span> No BS pitches</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 2. PROBLEM ───────────────────────────────────────────────── -->
+  <section class="problem">
+    <div class="container">
+      <h2>UGC Alone Is <span class="dark-pill">Not Enough...</span></h2>
+      <div class="problem-body">
+        <p>
+          A lot of brands that are fighting the <strong>15k - 30k a month</strong> mark rely
+          mostly on fully outsourced ads from UGC creators...
+        </p>
+        <p>
+          While the brands that scale past 2k days rely on <strong>creative system</strong>
+          for pumping new <strong>winning ads consistently.</strong>
+        </p>
+        <p>
+          That's what allow my clients to get results like these 👇
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3. RESULTS ───────────────────────────────────────────────── -->
+  <section class="results">
+    <div class="container">
+      <h2>Results For 15k - 30k <span style="color:var(--white)">Ecom Brands</span></h2>
+      <p class="subtext">And these are just some of them...</p>
+
+      <div class="cards-grid">
+        <!-- Left Card — before results -->
+        <div class="card card-light">
+          <img src="https://raw.githubusercontent.com/tonivelkov11/my-landing-page/main/The%20new%20batch%20of%20ads%20seem%20fine%203.png" alt="Ad results €7.39 / 4.90 ROAS" style="width:100%;border-radius:8px;margin-bottom:16px;" />
+          <img src="https://raw.githubusercontent.com/tonivelkov11/my-landing-page/main/The%20new%20batch%20of%20ads%20seem%20fine%204.png" alt="Ad results €8.14 / 5.06 ROAS" style="width:100%;border-radius:8px;margin-bottom:16px;" />
+          <img src="https://raw.githubusercontent.com/tonivelkov11/my-landing-page/main/Screenshot%202026-01-01%20at%2023.42.54%202.png" alt="Ad results €12.39 / 4.17 and €15.64 / 3.03 ROAS" style="width:100%;border-radius:8px;" />
+        </div>
+
+        <!-- Right Card — after results -->
+        <div class="card card-dark">
+          <img src="https://raw.githubusercontent.com/tonivelkov11/my-landing-page/main/The%20new%20batch%20of%20ads%20seem%20fine%20(1)%202.png" alt="Ad results after strategy — ROAS 7.31, 12.35, 10.23, 2.90, 7.47" style="width:100%;border-radius:8px;" />
+        </div>
+      </div>
+
+      <a href="#final-cta" class="btn">Book a Free Call</a>
+    </div>
+  </section>
+
+  <!-- ── 4. WHAT TO EXPECT ─────────────────────────────────────────── -->
+  <section class="expect">
+    <div class="container">
+      <h2>
+        What To Expect <span class="highlight-box">On The Call</span>
+      </h2>
+    </div>
+  </section>
+
+  <!-- ── 5. THREE STEPS ────────────────────────────────────────────── -->
+  <section class="steps">
+    <div class="container">
+      <div class="steps-grid">
+
+        <div class="step-card">
+          <span class="step-number">01</span>
+          <div class="step-body">
+            <p>Before the call I analyze NOT only your brand...</p>
+            <p>But the entire market and how well you're positioned among competitors.</p>
+            <p>This allows me to give you action steps that would actually
+            <span class="accent-word">help you scale no matter if</span> we decide to work
+            together or not.</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">02</span>
+          <div class="step-body">
+            <p>On the call I will be able to understand your brand even better because I can
+            see so much from the outside.</p>
+            <p>I will share what I found out before the call and give you specific
+            <span class="accent-word">revenue leaks</span> which are
+            <span class="accent-word">not only related to ads...</span></p>
+            <p>But based on your entire brand situation as a whole.</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">03</span>
+          <div class="step-body">
+            <p>I don't work with anyone as I think you don't as well.</p>
+            <p>If we decide to work together, scaling past 2k days is inevitable but...</p>
+            <p>Even if we decide that we are not a good fit, you will still leave the call
+            with value specifically for your situation which will help you get to this level.</p>
+          </div>
+        </div>
+
+      </div>
+      <a href="#" class="btn">Find Your Revenue Leaks</a>
+    </div>
+  </section>
+
+</body>
+</html>
